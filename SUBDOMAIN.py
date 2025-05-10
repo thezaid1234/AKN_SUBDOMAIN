@@ -24,10 +24,9 @@ with open(file_path, 'r') as file:
         if not subdomain:
             continue
         if "https://" in subdomain:
-            url = subdomain
+            url =  subdomain
         else:
-            continue
-        url = https+subdomain
+            url = https+subdomain
         response = requests.get(url, timeout=5)
         if response.status_code == 200:
             print(GREEN+f"[+] {url} is UP {response.status_code}")
