@@ -20,15 +20,18 @@ file_path=input(yellow+"Enter the subdomains path: ")
 
 with open(file_path, 'r') as file:
     for line in file:
-        subdomain = line.strip()
-        if not subdomain:
-            continue
-        if "https://" in subdomain:
-            url =  subdomain
-        else:
-            url = https+subdomain
-        response = requests.get(url, timeout=5)
-        if response.status_code == 200:
-            print(GREEN+f"[+] {url} is UP {response.status_code}")
-        else:
-            print(RED+f"[-] {url} responded with status code: {response.status_code}")
+        try:
+            subdomain = line.strip()
+            if not subdomain:
+                continue
+            if "https://" in subdomain:
+                url =  subdomain
+            else:
+                url = https+subdomain
+            response = requests.get(url,timeout=5)
+            if response.status_code == 200:
+                print(GREEN+f"[+] {url} is UP {response.status_code}")
+            else:
+                print(RED+f"[-] {url} responded with status code: {response.status_code}")
+        except requests.exceptions.Timeout:
+            print(RED+f"[-] {url} timedout")
