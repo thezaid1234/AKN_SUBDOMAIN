@@ -11,4 +11,4 @@ This tool is simply used when you have a list of lets say 3006 subdomains and yo
 3.Turn on
 <pre><code>python SUBDOMAIN.py</code></pre>
 And your done!! enjoy
-If you like this tool don't forget to add a star
+If you like this tool don't forget to add a star.
