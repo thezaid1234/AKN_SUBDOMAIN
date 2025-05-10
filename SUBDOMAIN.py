@@ -9,26 +9,25 @@ quote="""
 ██║░░██║██║░╚██╗██║░╚███║  ██████╔╝╚██████╔╝██████╦╝██████╔╝╚█████╔╝██║░╚═╝░██║██║░░██║██║██║░╚███║
 ╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝  ╚═════╝░░╚═════╝░╚═════╝░╚═════╝░░╚════╝░╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝╚═╝░░╚══╝
                                                             @Zaid barham
-                                                            Paypal:barhamzaid01@gmail.com
-                                                            """
+                                                            Paypal:barhamzaid01@gmail.com"""
 
 blue="\033[0;34m"
 yellow="\033[1;33m"
 RED = "\033[0;31m"
 GREEN = "\033[0;32m"
 print(blue+quote)
-file=input(yellow+"Enter the subdomains path: ")
+file_path=input(yellow+"Enter the subdomains path: ")
 
-with open(file, 'r') as file:
+with open(file_path, 'r') as file:
     for line in file:
         subdomain = line.strip()
         if not subdomain:
             continue
         if "https://" in subdomain:
-            url = https + subdomain
+            url = subdomain
         else:
             continue
-        url = subdomain
+        url = https+subdomain
         response = requests.get(url, timeout=5)
         if response.status_code == 200:
             print(GREEN+f"[+] {url} is UP {response.status_code}")
