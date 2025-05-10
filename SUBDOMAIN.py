@@ -35,3 +35,5 @@ with open(file_path, 'r') as file:
                 print(RED+f"[-] {url} responded with status code: {response.status_code}")
         except requests.exceptions.Timeout:
             print(RED+f"[-] {url} timedout")
+        except requests.exceptions.RequestException:
+            print(RED+f"[-] {url} error")
