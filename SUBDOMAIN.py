@@ -28,7 +28,7 @@ with open(file_path, 'r') as file:
                 url =  subdomain
             else:
                 url = https+subdomain
-            response = requests.get(url,timeout=5)
+            response = requests.get(url,timeout=2)
             if response.status_code == 200:
                 print(GREEN+f"[+] {url} is UP {response.status_code}")
             else:
